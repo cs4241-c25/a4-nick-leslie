@@ -1,0 +1,26 @@
+{
+  "name": "cs4241-c25-a3-short-stack",
+  "version": "0.1.0",
+  "description": "WPI CS4241-C25 Assignment A2",
+  "author": "",
+  "scripts": {
+    "start": "dotenv -e .env -- node server.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.744.0",
+    "@aws-sdk/lib-storage": "^3.744.0",
+    "@aws-sdk/s3-request-presigner": "^3.744.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "dotenv-cli": "^8.0.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mime": "^2.4.4",
+    "mongodb": "^6.13.0",
+    "passport": "^0.7.0",
+    "passport-github": "^1.1.0"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
