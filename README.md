@@ -25,11 +25,7 @@ Sample Readme (delete the above when you're ready to submit, and modify the belo
 
 ## Your Web Application Title
 
-your hosting link e.g. http://a4-wilsonwong.glitch.me
-
-Include a very brief summary of your project here and what you changed / added to assignment #3. 
-
-Unlike previous assignments, this assignment will be solely graded on whether or not you successfully complete it. Partial credit will be generously given.
-
+your hosting link  https://a4-nick-leslie.fly.dev 
+A way for students to group up 
 
 Due to me already porting my project to a Frontend framework and not having much time this week I just added a new page to my application. 
