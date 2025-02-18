@@ -4,6 +4,7 @@
   "description": "WPI CS4241-C25 Assignment A2",
   "author": "",
   "scripts": {
+    "compile":"tsc ./liveMessage.ts",
     "start": "dotenv -e .env -- node server.js"
   },
   "dependencies": {
@@ -15,12 +16,19 @@
     "dotenv-cli": "^8.0.0",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
+    "express-ws": "^5.0.2",
     "mime": "^2.4.4",
     "mongodb": "^6.13.0",
     "passport": "^0.7.0",
-    "passport-github": "^1.1.0"
+    "passport-github": "^1.1.0",
+    "ws": "^8.18.0"
   },
   "engines": {
     "node": "16.x"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/ws": "^8.5.14",
+    "typescript": "^5.7.3"
   }
 }

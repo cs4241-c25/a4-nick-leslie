@@ -8,13 +8,13 @@ const path = require('path');
 const  GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session')
 const passport = require('passport')
-const { Upload} = require("@aws-sdk/lib-storage")
+const { Upload } = require("@aws-sdk/lib-storage")
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { S3Client, PutObjectCommand,GetObjectCommand } = require('@aws-sdk/client-s3');
 const { group } = require("node:console");
 const { Readable }  = require('stream');
 const { finished } = require('stream/promises');
-
+const { setUpWebSockets } = require("./liveMessage")
 
 
     // IMPORTANT: you must run `npm install` in the directory for this assignment
@@ -119,6 +119,15 @@ app.get("/api/groups",async (req,res) => {
   const collection = client.db("a3").collection("groups");
   const groups = (await collection.find({}).toArray())
   res.json(groups)
+})
+app.get("/api/group/:groupId/",async (req,res) => {
+  const collection = client.db("a3").collection("groups");
+  console.log(req.params.groupId)
+  const group = await collection.findOne({
+    _id: new ObjectId(req.params.groupId),
+  });
+  console.log(group)
+  res.json(group)
 })
 
 //checks if thumbnail is expired
@@ -310,6 +319,8 @@ if (client != undefined) {
   })
 }
 
-app.listen(process.env.PORT || port,() => {
+const server = setUpWebSockets(app);
+
+server.listen(process.env.PORT || port,() => {
   console.log("server running at http://localhost:"+port)
 })

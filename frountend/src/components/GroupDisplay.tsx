@@ -5,6 +5,8 @@ import { Button } from "./primatives/button";
 import { useAuth } from "./authContext";
 import { Input } from "./primatives/Input";
 import { TextArea } from "./primatives/textArea";
+import { A } from "@solidjs/router";
+import { group } from "../routes/group";
 
 
 export function GroupDisplay(props: { group: Group, onDelete?: (group: Group) => void, onJoin?: (group: Group) => void,onEdit?:(group:Group)=>void}) {
@@ -82,7 +84,7 @@ export function GroupDisplay(props: { group: Group, onDelete?: (group: Group) =>
           <div>
             <Switch>
               <Match when={editMode() === false}>
-                <h1>Name: {props.group.group_name}</h1>
+                <h1 class="hover:underline"><A href={`/group/${props.group._id}`}> Name: {props.group.group_name}</A></h1>
               </Match>
               <Match when={editMode() === true}>
                 <Input onInput={setGroupName} value={groupName()}/>
@@ -103,7 +105,7 @@ export function GroupDisplay(props: { group: Group, onDelete?: (group: Group) =>
           </Switch>
           <div>
             <h1>Members</h1>
-            <div class="grid grid-cols-6 gap-2">
+            <div class="grid grid-cols-4 gap-2">
               <For each={props.group.members.slice(0,10)}>
                 {(member) => <MemberDisplay user={member} full={false } />}
               </For>

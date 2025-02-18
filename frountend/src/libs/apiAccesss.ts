@@ -9,6 +9,15 @@ export async function fetchGroups():Promise<Group[]> {
   })
   return await response.json()
 }
+export async function fetchGroup(groupId:String):Promise<Group> {
+  const response = await fetch(`/api/group/${groupId}`, {
+    method:"GET",
+    headers: {
+      "content-type": "application/json"
+    },
+  })
+  return await response.json()
+}
 
 
 export async function getUserInfo():Promise<authStatus> {
